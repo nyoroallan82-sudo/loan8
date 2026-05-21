@@ -17,7 +17,12 @@ defmodule Loan8Web.Router do
   scope "/", Loan8Web do
     pipe_through :browser
 
-    get "/", PageController, :home
+    live "/", DashboardLive.Index, :index
+    live "/dashboard", DashboardLive.Index, :index
+
+
+    live "/calculator", CalculatorLive.Index, :index
+
   end
 
   # Other scopes may use custom stacks.
