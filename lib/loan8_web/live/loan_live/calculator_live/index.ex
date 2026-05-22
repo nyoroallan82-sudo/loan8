@@ -1,4 +1,4 @@
-defmodule Loan8Web.CalculatorLive.Index do
+defmodule Loan8Web.LoanLive.Index do
   use Loan8Web, :live_view
 
   @impl true
