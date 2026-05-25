@@ -3,97 +3,138 @@ defmodule Loan8Web.UserLive.Login do
 
   alias Loan8.Accounts
 
-  @impl true
-  def render(assigns) do
-    ~H"""
-    <Layouts.app flash={@flash} current_scope={@current_scope}>
-      <div class="mx-auto max-w-sm space-y-4">
-        <div class="text-center">
-          <.header>
-            <p>Log in</p>
-            <:subtitle>
-              <%= if @current_scope do %>
-                You need to reauthenticate to perform sensitive actions on your account.
-              <% else %>
-                Don't have an account? <.link
-                  navigate={~p"/users/register"}
-                  class="font-semibold text-brand hover:underline"
-                  phx-no-format
-                >Sign up</.link> for an account now.
-              <% end %>
-            </:subtitle>
-          </.header>
-        </div>
+@impl true
+def render(assigns) do
+  ~H"""
+  <div class="min-h-screen bg-slate-50 text-slate-800">
 
-        <div :if={local_mail_adapter?()} class="alert alert-info">
-          <.icon name="hero-information-circle" class="size-6 shrink-0" />
-          <div>
-            <p>You are running the local mail adapter.</p>
-            <p>
-              To see sent emails, visit <.link href="/dev/mailbox" class="underline">the mailbox page</.link>.
-            </p>
+
+    <header class="bg-white border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-8 py-4 flex items-center justify-between">
+
+
+        <div class="flex items-center gap-10">
+
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-green-600 flex items-center justify-center text-white font-bold">
+              L8
+            </div>
+            <span class="font-bold text-xl">Loan8</span>
           </div>
+
+          <nav class="hidden md:flex items-center gap-8 text-slate-600">
+            <.link navigate={~p"/"} class="hover:text-green-600">Home</.link>
+            <a href="#" class="hover:text-green-600">How it works</a>
+            <a href="#" class="hover:text-green-600">For Saccos</a>
+            <a href="#" class="hover:text-green-600">FAQ</a>
+          </nav>
+
         </div>
 
-        <.form
-          :let={f}
-          for={@form}
-          id="login_form_magic"
-          action={~p"/users/log-in"}
-          phx-submit="submit_magic"
-        >
-          <.input
-            readonly={!!@current_scope}
-            field={f[:email]}
-            type="email"
-            label="Email"
-            autocomplete="username"
-            spellcheck="false"
-            required
-            phx-mounted={JS.focus()}
-          />
-          <.button class="btn btn-primary w-full">
-            Log in with email <span aria-hidden="true">→</span>
-          </.button>
-        </.form>
 
-        <div class="divider">or</div>
+        <div class="flex items-center gap-6">
+          <.link navigate={~p"/users/log-in"} class="text-slate-700 hover:text-green-600">
+            Log in
+          </.link>
+
+          <.link
+            navigate={~p"/users/register"}
+            class="bg-green-600 hover:bg-green-700 text-white px-5 py-2.5 rounded-xl font-semibold"
+          >
+            Create free account
+          </.link>
+
+          <.link navigate={~p"/"} class=" text-slate-500  hover:text-green-600 ">
+          Dashboard
+        </.link>
+
+        <.link navigate={~p"/calculator"} class="text-slate-500 hover:text-green-600">
+          Calculator
+        </.link>
+        </div>
+
+      </div>
+    </header>
+
+
+    <main class="flex items-center justify-center px-6 py-20">
+
+      <div class="w-full max-w-md bg-white border border-slate-200 rounded-2xl shadow-sm p-10">
+
+
+        <div class="mb-8 text-center">
+          <h1 class="text-3xl font-bold">Log in to Loan8</h1>
+          <p class="text-slate-500 mt-2">
+            Welcome back. Enter your details below.
+          </p>
+        </div>
+
 
         <.form
           :let={f}
           for={@form}
           id="login_form_password"
-          action={~p"/users/log-in"}
           phx-submit="submit_password"
-          phx-trigger-action={@trigger_submit}
+          class="space-y-5"
         >
-          <.input
-            readonly={!!@current_scope}
-            field={f[:email]}
-            type="email"
-            label="Email"
-            autocomplete="username"
-            spellcheck="false"
-            required
-          />
-          <.input
-            field={@form[:password]}
-            type="password"
-            label="Password"
-            autocomplete="current-password"
-            spellcheck="false"
-          />
-          <.button class="btn btn-primary w-full" name={@form[:remember_me].name} value="true">
-            Log in and stay logged in <span aria-hidden="true">→</span>
-          </.button>
-          <.button class="btn btn-primary btn-soft w-full mt-2">
-            Log in only this time
-          </.button>
+
+
+          <div>
+            <label class="block text-sm font-medium mb-2">Email</label>
+            <input
+              type="email"
+              name={f[:email].name}
+              value={f[:email].value}
+              class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:ring-2 focus:ring-green-600 focus:outline-none"
+              placeholder="you@example.com"
+              required
+            />
+          </div>
+
+
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <label class="block text-sm font-medium">Password</label>
+              <a href="#" class="text-sm text-green-600 hover:underline">Forgot?</a>
+            </div>
+
+            <input
+              type="password"
+              name={f[:password].name}
+              value={f[:password].value}
+              class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:ring-2 focus:ring-green-600 focus:outline-none"
+              required
+            />
+          </div>
+
+
+          <button
+            type="submit"
+            class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl font-semibold text-lg transition"
+          >
+            Log in
+          </button>
+
         </.form>
+
+
+        <div class="mt-8 text-center text-sm text-slate-500">
+          New to Loan8?
+          <.link navigate={~p"/users/register"} class="text-green-600 font-semibold hover:underline">
+            Create an account
+          </.link>
+        </div>
+
+        <p class="mt-6 text-center text-xs text-slate-400">
+          Demo: any email + password will sign you in.
+        </p>
+
       </div>
-    </Layouts.app>
-    """
-  end
+    </main>
+
+  </div>
+  """
+end
 
   @impl true
   def mount(_params, _session, socket) do
