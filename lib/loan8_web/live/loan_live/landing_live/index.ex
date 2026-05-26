@@ -1,0 +1,468 @@
+defmodule Loan8Web.LandingLive.Index do
+  use Loan8Web, :live_view
+
+  @impl true
+  def render(assigns) do
+    ~H"""
+    <div class="min-h-screen bg-[#f6f7f8] text-slate-900">
+
+
+      <header class="sticky top-0 z-50 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto h-20 px-8 flex items-center justify-between">
+
+
+          <div class="flex items-center gap-14">
+
+
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-green-600 flex items-center justify-center text-white font-bold text-sm">
+                L8
+              </div>
+
+              <span class="font-bold text-[33px] tracking-tight">
+                Loan8
+              </span>
+            </div>
+
+
+            <nav class="hidden md:flex items-center gap-10 text-[17px] font-medium">
+              <.link navigate={~p"/"} class="text-green-600">
+                Home
+              </.link>
+
+              <a href="#" class="text-slate-600 hover:text-green-600">
+                How it works
+              </a>
+
+              <a href="#" class="text-slate-600 hover:text-green-600">
+                For Saccos
+              </a>
+
+              <a href="#" class="text-slate-600 hover:text-green-600">
+                FAQ
+              </a>
+            </nav>
+          </div>
+
+
+          <div class="flex items-center gap-8">
+
+            <.link
+              navigate={~p"/users/log-in"}
+              class="text-slate-700 font-semibold hover:text-green-600"
+            >
+              Log in
+            </.link>
+
+            <.link
+              navigate={~p"/users/register"}
+              class="bg-green-600 hover:bg-green-700 text-white px-7 py-3 rounded-xl font-semibold transition"
+            >
+              Create free account
+            </.link>
+
+          </div>
+
+        </div>
+      </header>
+
+
+      <section class="max-w-7xl mx-auto px-8 pt-24 pb-20">
+
+        <div class="grid lg:grid-cols-2 gap-20 items-center">
+
+
+          <div>
+
+
+            <div class="inline-flex items-center gap-2 bg-green-50 text-green-700 rounded-full px-4 py-2 text-sm font-medium mb-10">
+              <div class="w-2 h-2 rounded-full bg-green-600"></div>
+              Trusted by Sacco members across Kenya
+            </div>
+
+
+            <h1 class="text-[76px] leading-[0.95] font-bold tracking-[-3px] text-slate-950">
+              Calculate your
+              <br />
+              Sacco loan
+              <br />
+              repayments easily.
+            </h1>
+
+
+            <p class="mt-10 text-[19px] leading-10 text-slate-600 max-w-2xl">
+              Loan8 helps Sacco members work out the exact monthly
+              repayment, total interest and breakdown for any loan —
+              in seconds, in shillings, with the history saved to your account.
+            </p>
+
+
+            <div class="mt-12 flex items-center gap-5">
+
+              <.link
+                navigate={~p"/users/register"}
+                class="h-16 px-10 rounded-2xl bg-green-600 hover:bg-green-700 text-white text-[22px] font-semibold flex items-center gap-4 transition"
+              >
+                Get started — Create free account
+
+                <span class="text-2xl">
+                  →
+                </span>
+              </.link>
+
+            </div>
+
+            <div class="mt-5">
+              <button class="h-16 px-10 rounded-2xl bg-white border border-slate-300 text-[22px] font-medium hover:bg-slate-50">
+                I already have an account
+              </button>
+            </div>
+
+
+            <div class="mt-12 flex flex-wrap items-center gap-12 text-[18px] text-slate-500">
+
+              <div class="flex items-center gap-2">
+                <span class="text-green-600 font-bold">✓</span>
+                Free for members
+              </div>
+
+              <div class="flex items-center gap-2">
+                <span class="text-green-600 font-bold">✓</span>
+                No card required
+              </div>
+
+              <div class="flex items-center gap-2">
+                <span class="text-green-600 font-bold">✓</span>
+                History saved
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="relative">
+
+
+            <div class="absolute -top-5 right-0 bg-[#08112c] text-white rounded-full px-6 py-3 text-lg font-semibold shadow-2xl z-20">
+              Updates as you type
+            </div>
+
+
+            <div class="bg-white border border-slate-200 rounded-3xl p-8 shadow-[0_25px_60px_rgba(15,23,42,0.08)]">
+
+
+              <div class="flex items-start justify-between">
+
+                <div>
+                  <p class="text-slate-500 text-lg">
+                    Loan calculator
+                  </p>
+
+                  <h3 class="mt-2 text-[34px] font-semibold">
+                    School fees — Term 2
+                  </h3>
+                </div>
+
+                <div class="flex items-center gap-2 bg-green-50 text-green-700 rounded-full px-4 py-2 text-sm font-medium">
+                  <div class="w-2 h-2 rounded-full bg-green-600"></div>
+                  Live
+                </div>
+
+              </div>
+
+
+              <div class="mt-10 grid grid-cols-2 gap-6">
+
+
+                <div>
+                  <label class="block text-lg text-slate-700 mb-3">
+                    Loan amount
+                  </label>
+
+                  <div class="h-16 rounded-2xl border border-slate-300 px-6 flex items-center text-[34px]">
+                    <span class="text-slate-500 mr-3">KES</span>
+                    <span>75,000</span>
+                  </div>
+                </div>
+
+
+                <div>
+                  <label class="block text-lg text-slate-700 mb-3">
+                    Interest p.a.
+                  </label>
+
+                  <div class="h-16 rounded-2xl border border-slate-300 px-6 flex items-center justify-between text-[34px]">
+                    <span>12.0</span>
+                    <span class="text-slate-500">%</span>
+                  </div>
+                </div>
+
+              </div>
+
+
+              <div class="mt-6">
+                <label class="block text-lg text-slate-700 mb-3">
+                  Term
+                </label>
+
+                <div class="h-16 rounded-2xl border border-slate-300 px-6 flex items-center justify-between text-[34px]">
+                  <span>6</span>
+                  <span class="text-slate-500 text-2xl">
+                    months
+                  </span>
+                </div>
+              </div>
+
+
+              <div class="mt-8 rounded-3xl bg-slate-50 p-8 border border-slate-200">
+
+                <p class="text-slate-500 text-lg">
+                  Monthly repayment
+                </p>
+
+                <div class="mt-3 flex items-end gap-2">
+                  <span class="text-[32px] text-slate-600">
+                    KES
+                  </span>
+
+                  <span class="text-[64px] font-bold text-green-600 leading-none">
+                    12,948
+                  </span>
+                </div>
+
+
+                <div class="mt-8 h-5 rounded-full bg-slate-200 overflow-hidden flex">
+                  <div class="w-[92%] bg-green-600"></div>
+                  <div class="w-[8%] bg-yellow-400"></div>
+                </div>
+
+
+                <div class="mt-5 flex items-center justify-between text-base">
+
+                  <div class="flex items-center gap-3 text-slate-500">
+                    <div class="w-4 h-4 rounded bg-green-600"></div>
+                    Principal KES 75,000
+                  </div>
+
+                  <div class="flex items-center gap-3 text-slate-500">
+                    <div class="w-4 h-4 rounded bg-yellow-400"></div>
+                    Interest KES 2,690
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <section class="border-y border-slate-200 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-8 py-12">
+
+          <p class="text-center text-sm font-semibold tracking-[2px] text-slate-500 uppercase">
+            Used by members of
+          </p>
+
+          <div class="mt-10 flex flex-wrap justify-center items-center gap-12 text-[19px] font-medium text-slate-800">
+
+            <span>Mwalimu Sacco</span>
+            <span class="text-slate-300">•</span>
+
+            <span>Stima Sacco</span>
+            <span class="text-slate-300">•</span>
+
+            <span>Kenya Police Sacco</span>
+            <span class="text-slate-300">•</span>
+
+            <span>Unaitas</span>
+            <span class="text-slate-300">•</span>
+
+            <span>Harambee Sacco</span>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      <section class="py-28">
+        <div class="max-w-7xl mx-auto px-8">
+
+
+          <div class="text-center">
+            <h2 class="text-[58px] font-bold tracking-[-2px]">
+              Built for the way Saccos actually work.
+            </h2>
+
+            <p class="mt-5 text-[24px] text-slate-500">
+              Four small things, done well. No fluff.
+            </p>
+          </div>
+
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-20">
+
+
+            <div class="bg-white border border-slate-200 rounded-3xl p-8">
+              <div class="w-12 h-12 rounded-2xl bg-green-50 text-green-600 flex items-center justify-center text-2xl">
+                ⚡
+              </div>
+
+              <h3 class="mt-8 text-[30px] font-semibold">
+                Fast
+              </h3>
+
+              <p class="mt-4 text-[18px] leading-8 text-slate-500">
+                Type a loan amount and see your repayment instantly —
+                no recalculate button.
+              </p>
+            </div>
+
+
+            <div class="bg-white border border-slate-200 rounded-3xl p-8">
+              <div class="w-12 h-12 rounded-2xl bg-green-50 text-green-600 flex items-center justify-center text-2xl">
+                🧮
+              </div>
+
+              <h3 class="mt-8 text-[30px] font-semibold">
+                Accurate
+              </h3>
+
+              <p class="mt-4 text-[18px] leading-8 text-slate-500">
+                Standard reducing-balance formula used by Saccos,
+                with a full amortization schedule.
+              </p>
+            </div>
+
+
+            <div class="bg-white border border-slate-200 rounded-3xl p-8">
+              <div class="w-12 h-12 rounded-2xl bg-green-50 text-green-600 flex items-center justify-center text-2xl">
+                🛡️
+              </div>
+
+              <h3 class="mt-8 text-[30px] font-semibold">
+                Free for members
+              </h3>
+
+              <p class="mt-4 text-[18px] leading-8 text-slate-500">
+                No card, no trial, no upsells.
+                Just the calculator you actually need.
+              </p>
+            </div>
+
+
+            <div class="bg-white border border-slate-200 rounded-3xl p-8">
+              <div class="w-12 h-12 rounded-2xl bg-green-50 text-green-600 flex items-center justify-center text-2xl">
+                ↺
+              </div>
+
+              <h3 class="mt-8 text-[30px] font-semibold">
+                Saves your history
+              </h3>
+
+              <p class="mt-4 text-[18px] leading-8 text-slate-500">
+                Name and save each calculation so you can compare options before applying.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      <section class="bg-[#eef7ef] py-28">
+        <div class="max-w-6xl mx-auto px-8 text-center">
+
+          <div class="text-green-600 text-6xl">
+            “
+          </div>
+
+          <p class="mt-10 text-[38px] leading-[1.5] tracking-[-1px] max-w-5xl mx-auto">
+            Before I take any Sacco loan I run the numbers here first.
+            Knowing the monthly repayment ahead of time has saved me
+            from over-borrowing twice already.
+          </p>
+
+
+          <div class="mt-14 flex items-center justify-center gap-5">
+
+            <div class="w-16 h-16 rounded-full bg-green-700 text-white flex items-center justify-center font-bold text-xl">
+              WO
+            </div>
+
+            <div class="text-left">
+              <p class="font-semibold text-xl">
+                Wanjiku Otieno
+              </p>
+
+              <p class="text-slate-500 text-lg">
+                Member, Mwalimu Sacco · Nairobi
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      <section class="py-28">
+        <div class="max-w-5xl mx-auto px-8 text-center">
+
+          <h2 class="text-[62px] font-bold tracking-[-2px]">
+            Run your first calculation in 30 seconds.
+          </h2>
+
+          <p class="mt-5 text-[24px] text-slate-500">
+            Create a free account — no payment details needed.
+          </p>
+
+          <.link
+            navigate={~p"/users/register"}
+            class="mt-12 inline-flex items-center gap-4 bg-green-600 hover:bg-green-700 text-white px-12 py-5 rounded-2xl text-[24px] font-semibold transition"
+          >
+            Get started — Create free account
+            <span>→</span>
+          </.link>
+
+        </div>
+      </section>
+
+
+      <footer class="border-t border-slate-200 bg-white">
+        <div class="max-w-7xl mx-auto px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
+
+          <div class="flex items-center gap-4 text-slate-500">
+
+            <div class="w-8 h-8 rounded-lg bg-green-600 text-white flex items-center justify-center text-sm font-bold">
+              L8
+            </div>
+
+            <p class="text-lg">
+              © 2026 Loan8. Built in Nairobi.
+            </p>
+
+          </div>
+
+          <div class="flex items-center gap-10 text-lg text-slate-500">
+            <a href="#" class="hover:text-green-600">About</a>
+            <a href="#" class="hover:text-green-600">Privacy</a>
+            <a href="#" class="hover:text-green-600">Terms</a>
+            <a href="#" class="hover:text-green-600">Contact</a>
+          </div>
+
+        </div>
+      </footer>
+
+    </div>
+    """
+  end
+end

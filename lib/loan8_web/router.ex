@@ -19,8 +19,9 @@ defmodule Loan8Web.Router do
   scope "/", Loan8Web do
     pipe_through :browser
 
-    live "/", DashboardLive.Index, :index
+
     live "/dashboard", DashboardLive.Index, :index
+    live "/", LandingLive.Index, :index
 
     live "/calculator", LoanLive.Index, :index
 
