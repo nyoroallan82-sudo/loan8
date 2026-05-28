@@ -85,7 +85,7 @@ def render(assigns) do
               type="email"
               name={f[:email].name}
               value={f[:email].value}
-              class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:ring-2 focus:ring-green-600 focus:outline-none"
+              class="w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-800 focus:ring-2 focus:ring-green-600 focus:outline-none"
               placeholder="you@example.com"
               required
             />
@@ -102,7 +102,7 @@ def render(assigns) do
               type="password"
               name={f[:password].name}
               value={f[:password].value}
-              class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:ring-2 focus:ring-green-600 focus:outline-none"
+              class="w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-800 focus:ring-2 focus:ring-green-600 focus:outline-none"
               required
             />
           </div>

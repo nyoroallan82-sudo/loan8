@@ -80,7 +80,7 @@ defmodule Loan8Web.UserLive.Registration do
 
 
             <div>
-              <label class="block text-sm font-medium text-slate-900 mb-1.5">
+              <label class="block text-sm  font-medium text-slate-900 mb-1.5">
                 Full name
               </label>
 
@@ -88,7 +88,7 @@ defmodule Loan8Web.UserLive.Registration do
                 type="text"
                 name="user[name]"
                 placeholder="e.g. Wanjiku Otieno"
-                class="w-full h-11 rounded-xl border border-slate-300 px-4 text-base outline-none focus:ring-2 focus:ring-green-500"
+                class="w-full h-11 rounded-xl border border-slate-300 px-4  text-base text-slate-800 outline-none focus:ring-2 focus:ring-green-500"
               />
             </div>
 
@@ -102,7 +102,7 @@ defmodule Loan8Web.UserLive.Registration do
                 type="email"
                 name="user[email]"
                 placeholder="you@example.com"
-                class="w-full h-11 rounded-xl border border-slate-300 px-4 text-base outline-none focus:ring-2 focus:ring-green-500"
+                class="w-full h-11 rounded-xl border border-slate-300 px-4 text-base text-slate-800 outline-none focus:ring-2 focus:ring-green-500"
               />
             </div>
 
@@ -116,7 +116,7 @@ defmodule Loan8Web.UserLive.Registration do
                 type="password"
                 name="user[password]"
                 placeholder="At least 6 characters"
-                class="w-full h-11 rounded-xl border border-slate-300 px-4 text-base outline-none focus:ring-2 focus:ring-green-500"
+                class="w-full h-11 rounded-xl border border-slate-300 px-4 text-base text-slate-800 outline-none focus:ring-2 focus:ring-green-500"
               />
             </div>
 
@@ -130,7 +130,7 @@ defmodule Loan8Web.UserLive.Registration do
                 type="password"
                 name="user[password_confirmation]"
                 placeholder="Re-enter password"
-                class="w-full h-11 rounded-xl border border-slate-300 px-4 text-base outline-none focus:ring-2 focus:ring-green-500"
+                class="w-full h-11 rounded-xl border border-slate-300 px-4 text-base text-slate-800 outline-none focus:ring-2 focus:ring-green-500"
               />
             </div>
 

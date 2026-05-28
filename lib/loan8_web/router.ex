@@ -25,6 +25,12 @@ defmodule Loan8Web.Router do
 
     live "/calculator", LoanLive.Index, :index
 
+    live "/loans", LoanLive.Index, :index
+    live "/loans/new", LoanLive.Form, :new
+    live "/loans/:id/edit", LoanLive.Form, :edit
+    live "/loans/:id", LoanLive.Show, :show
+    live "/loans/:id/show/edit", LoanLive.Show, :edit
+
   end
 
 scope "/", Loan8Web do
